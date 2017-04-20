@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>萌宠之家</title>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+		<link rel="shortcut icon" href="img/pet.jpeg" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js" ></script>
+		<script type="text/javascript" src="js/dateAndWeather.js" ></script>
+		<script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+		<script type="text/javascript">
+			var t = n = 0, count;
+			$(document).ready(function(){	
+				count=$("#banner_list a").length;
+				$("#banner_list a:not(:first-child)").hide();
+				$("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt'));
+				$("#banner_info").click(function(){window.open($("#banner_list a:first-child").attr('href'), "_blank")});
+				$("#banner li").click(function() {
+					var i = $(this).text() - 1;4
+					n = i;
+					if (i >= count) return;
+					$("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt'));
+					$("#banner_info").unbind().click(function(){window.open($("#banner_list a").eq(i).attr('href'), "_blank")})
+					$("#banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(1000);
+					document.getElementById("banner").style.background="";
+					$(this).toggleClass("on");
+					$(this).siblings().removeAttr("class");
+				});
+				t = setInterval("showAuto()", 4000);
+				$("#banner").hover(function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 4000);});
+			})
+			
+			function showAuto()
+			{
+				n = n >=(count - 1) ? 0 : ++n;
+				$("#banner li").eq(n).trigger('click');
+			}
+		</script>
+	</head>
+	<body>
+		<!--
+        	作者：1056628965@qq.com
+        	时间：2016-11-29
+        	描述：顶部工作栏部分
+        -->
+       <!-- <div class="container-div">-->
+		<header>
+			<div class="container">
+				<div class="left-bar">
+					<ul>
+						<li class="show">
+							<a href="index.html">
+								<span class="icon-home3"></span>&nbsp;萌宠之家
+							</a>
+							<div class="showTime">
+								<div class="showTimeDate">
+									<span id="yearmonth"></span>
+								</div>
+								<div class="showTimeDetail">
+									<h3><span id="day"></span></h3>
+									<p><span id="lunnar"></span></p>
+									<p><span id="weather"></span></p>
+								</div>
+								<em></em>
+							</div>
+						</li>
+						<li><span id="sj"></span></li>
+					</ul>
+				</div>
+				<div class="right-bar">
+					<ul>
+						<li class="showUser">
+							<a href="index.html">
+								<span class="icon-user"></span>&nbsp;海仔
+							</a>
+							<div class="showInfo">
+								<div class="showInfoTop">
+									<div class="userimg">
+										<img src="img/tx.jpg"/>
+									</div>
+									<div class="username">
+										<a href="index.html">海仔</a>
+									</div>
+									<div class="userset">
+										<a href="index.html">
+											<span class="icon-cogs"></span>
+										</a>
+									</div>
+									<div class="usertext">
+										这个家伙很懒,什么东西都没有留下....
+									</div>
+								</div>
+								<div class="showInfoMiddle">
+									<div class="userclock">
+										<span class="icon-clock"></span>
+									</div>
+									<div class="userbrowser">
+										<div>绅士猫,萌萌的眼神</div>
+										<div>又萌又帅又绅士的	小猫咪..</div>
+									</div>
+									<div class="usercontinue">
+										<a href="index.html">
+											继续浏览
+										</a>
+									</div>
+								</div>
+								<div class="showInfoBottom">
+									<div class="shopname">
+										<a href="index.html">pk-PetStore</a>
+									</div>
+									<div class="exitbutton">
+										<a href="">
+											<span class="icon-cross"></span>
+										</a>
+									</div>
+								</div>
+								<em></em>
+							</div>
+						</li>
+						<li>
+							<a href="index.html">登录</a>
+						</li>
+						<li>
+							<a href="index.html">注册</a>
+						</li>
+						<li>
+							<a href="index.html">
+								<span class="icon-cart"></span>&nbsp;购物车
+							</a>
+						</li>
+						<li>
+							<a href="index.html">
+								<span class="icon-list2"></span>&nbsp;我的订单
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		
+		<!--
+        	作者：1056628965@qq.com
+        	时间：2016-11-29
+        	描述：搜索框部分
+        -->
+        <div class="container-search">
+        	<div class="search">
+        	<form>
+        		<input type="text" name="key" class="keysearch"/>
+        		<input type="button" value="提交" class="submitbutton"/>
+        	</form>
+        	<div class="searchtext">
+	        	<ul>
+	        		<li>
+	        			<a href="index.html">猫粮</a>
+	        		</li>
+	        		<li>
+	        			<a href="index.html">狗粮</a>
+	        		</li>
+	        		<li>
+	        			<a href="index.html">鱼饲料</a>
+	        		</li>
+	        	</ul>
+       		</div>
+        </div>
+        </div>
+        
+        
+        
+        <!--
+        	作者：1056628965@qq.com
+        	时间：2016-12-01
+        	描述：广告部分
+        -->
+        <div class="advertisement">
+        	<div class="container">
+        		<div class="advermian">
+        			<div class="advertop">
+        				商品列表
+        			</div>
+        			<div class="adverlist">
+        				<ul>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">狗狗</li>
+        							<li class="list-col">狗粮</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">猫猫</li>
+        							<li class="list-col">猫粮</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">水生动物</li>
+        							<li class="list-col">饲料</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">狗狗</li>
+        							<li class="list-col">狗粮</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">猫猫</li>
+        							<li class="list-col">猫粮</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">水生动物</li>
+        							<li class="list-col">饲料</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">狗狗</li>
+        							<li class="list-col">狗粮</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">猫猫</li>
+        							<li class="list-col">猫粮</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">水生动物</li>
+        							<li class="list-col">饲料</li>
+        						</ul>
+        					</li>
+        					<li class="list-row">
+        						<ul>
+        							<li class="list-col">其他动物</li>
+        							<li class="list-col">其他饲料</li>
+        						</ul>
+        					</li>
+        				</ul>
+        			</div>
+        		</div>	
+
+        		<div id="banner">
+
+					<ul>
+						<li class="on">1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						</ul>
+					<div id="banner_list">
+						<a href="index.html" ><img src="img/p1.jpg" /></a>
+						<a href="index.html" ><img src="img/p2.jpg" /></a>
+						<a href="index.html" ><img src="img/p3.jpg" /></a>
+						<a href="index.html" ><img src="img/p4.jpg" /></a>
+					</div>
+				</div>
+			</div>
+        </div>
+        
+        
+        <!--
+        	作者：1056628965@qq.com
+        	时间：2016-12-03
+        	描述:商品推荐部分
+        -->
+        <div class="product">
+        	<div class="container-box">
+        		<h3>萌宠推荐</h3>
+        		<div class="productlist">
+        			<img src="img/list1.jpg"/>
+        			<div class="list-introduce">
+        				<div class="listname">
+        					暖心金毛汪
+        				</div>
+        				<div class="list-reason">
+        					<h4 class="list-price">￥1299</h4><br />
+        					<h4>推荐理由:</h4>
+        					<p>又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪.</p>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="productlist">
+        			<img src="img/list2.jpg"/>
+        			<div class="list-introduce">
+        				<div class="listname">
+        					暖心金毛汪
+        				</div>
+        				<div class="list-reason">
+        					<h4 class="list-price">￥1299</h4><br />
+        					<h4>推荐理由:</h4>
+        					<p>又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪.</p>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="productlist">
+        			<img src="img/list3.jpg"/>
+        			<div class="list-introduce">
+        				<div class="listname">
+        					暖心金毛汪
+        				</div>
+        				<div class="list-reason">
+        					<h4 class="list-price">￥1299</h4><br />
+        					<h4>推荐理由:</h4>
+        					<p>又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪.</p>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="productlist">
+        			<img src="img/list4.jpg"/>
+        			<div class="list-introduce">
+        				<div class="listname">
+        					暖心金毛汪
+        				</div>
+        				<div class="list-reason">
+        					<h4 class="list-price">￥1299</h4><br />
+        					<h4>推荐理由:</h4>
+        					<p>又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪,又萌又帅绅士的小猫咪.</p>
+        				</div>
+        			</div>
+        		</div>
+        		
+        		<div class="clearfloat">
+        			
+        		</div>
+        	</div>
+        </div>
+        
+		
+		<!--
+        	作者：1056628965@qq.com
+        	时间：2016-11-29
+        	描述：尾部版权信息部分
+        -->
+		<footer>
+			<p>Copyright© 2016 szq All Rights Reserved</p>
+		</footer>
+		<!-- </div>-->
+	</body>
+</html>
